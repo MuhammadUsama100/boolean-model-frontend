@@ -1,0 +1,53 @@
+<nb-layout>
+
+    <nb-layout-header fixed>
+        <!-- Insert header here -->
+        <form [formGroup]="checkoutForm" (ngSubmit)="onSubmit(checkoutForm.value)">
+            <table>
+                <tr>
+                    <td>
+                        <img src="../../assets/image.JPG" height="40%">
+                    </td>
+                    <td>
+                        <nb-form-field>
+                            <input type="text" fullWidth nbInput formControlName="query">
+                        </nb-form-field>
+                    </td>
+                    <td>
+                        <button nbButton hero size="small" status="primary" type="submit">Search</button>
+                    </td>
+                    <td>
+                        <div>
+                            Result Set: {{resultDoc}}
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </nb-layout-header>
+
+    <nb-layout-column>
+
+        <nb-card>
+            <nb-card-body>
+                <div *ngFor="let item of items">
+                    <nb-card>
+                        <nb-card-body>
+                            <div style="color:lightskyblue ; font-size: 20px;" (click)="open(item.location)">
+                                {{item.header}}
+                            </div>
+                            <div>
+                                <p style="color:grey ; font-size: 12px;">
+                                    {{item.body}}.....
+                                </p>
+                            </div>
+                        </nb-card-body>
+                    </nb-card>
+                </div>
+            </nb-card-body>
+        </nb-card>
+
+    </nb-layout-column>
+
+
+</nb-layout>
